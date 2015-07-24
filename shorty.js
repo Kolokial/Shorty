@@ -6,5 +6,6 @@
   ajaxObj.onreadystatechange = function(){
     if(ajaxObj.readyState === 4 && ajaxObj.status === 200)
     alert(ajaxObj.responseText);
+    alert('Well this was somethign added');
   }
 })()
