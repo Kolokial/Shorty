@@ -1,11 +1,19 @@
 (function(){
   var ajaxObj = new XMLHttpRequest();
 
-  ajaxObj.open("GET","http://localhost/shorty/ear/?url="+window.location.locationbar);
+  ajaxObj.open("GET","http://localhost/shorty/ear/?url="+window.location.href);
   ajaxObj.send();
   ajaxObj.onreadystatechange = function(){
-    if(ajaxObj.readyState === 4 && ajaxObj.status === 200)
-    alert(ajaxObj.responseText);
-    alert('Well this was somethign added');
+    console.log(this.status, this.readyState);
+    console.log(this.readyState == 4 && this.status === 200);
+    if(this.readyState === 4 && this.status == 200){
+      alert(this.responseText);
+      alert("Well this was somethign added");
+
+      var box = "<div class=''>";
+      box    += "Link inserted.";
+      box    += "</div>";
+      
+    }
   }
 })()

@@ -4,22 +4,31 @@ class shorty{
 
   private $oDb;
 
-  protected function get_db(){
+  protected function start_database(){
     if(!is_object($this->oDb)){
-      $this->start_database();
+      $this->oDb = $this->__start_database();
     }
     return $this->oDb;
   }
 
-  protected  function start_database(){
-    $oDb = new mysqli();
-
-    if ($oDb->connect_error) {
-      die('Connect Error ('.$oDb->connect_errno.')'. $oDb->connect_error);
+  protected  function __start_database(){
+    $dsn = 'mysql:dbname=shorty;host=127.0.0.1';
+    $username = 'root';
+    $password = '';
+    try {
+      $oDb = new PDO($dsn,$username,$password);
+    } catch (PDOException $e) {
+      die('Connect Error ('.$e->getMessage().')');
     }
-
-    $this->oDb = $oDb;  
+    return $oDb;
   }
+
+  protected function insert(){
+    //$oDb = $this
+    $sSQL = "";
+  }
+
+
 }
 
 ?>

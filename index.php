@@ -4,4 +4,4 @@
   $sJavascript = ($sJavascript);
 ?>
 
-<a href='javascript:<?php echo $sJavascript ?>'>Shorty Bookmarklet</a>
+<a href='javascript:<?php echo ($sJavascript) ?>'>Shorty Bookmarklet</a>
